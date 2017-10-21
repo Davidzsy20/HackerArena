@@ -92,14 +92,8 @@ startVideo () {
 this.webrtc.startLocalVideo();
 }
 render() {
-
 return (
-    <div className ='stream'>
-      {/* {setTimeout( ()=> {
-        return <VideoChat
-        data ={this.webrtc}/>
-      },1000)}  */}
-    
+    <div className ='stream'>  
     <div ref='remotes' id ='remoteVideo'>
       <div className="videoContainer">
         <video  ref='local' id = 'localVideo'/>
