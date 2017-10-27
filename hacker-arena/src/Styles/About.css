@@ -1,7 +1,33 @@
-video {
-    position: absolute; right: 0; bottom: 0; top: 150px;
-    min-width: 50%; min-height: 50%;
-     z-index: -50;
-    background:  no-repeat; 
-    background-size: cover;
-}
+
+#Code {
+    backface-visibility:hidden;
+    background:url("http://www.markhillard.com/sandbox/media/polina.jpg") no-repeat scroll 0 0 #000;
+    background-size:contain;
+
+ 
+    bottom:0;
+    height:auto;
+    min-height:100%;
+    min-width:100%;
+    perspective:1000;
+    position:fixed;
+    right:0;
+    width:auto;
+    z-index:-1;
+    }
+    .banner {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .banner__video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;
+        min-width: 100%;
+        height: auto;
+        min-height: 100%;
+        transform: translateX(-50%) translateY(-50%);
+        z-index: 1;
+      }
