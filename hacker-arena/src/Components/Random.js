@@ -1,12 +1,15 @@
 import React from 'react';
-import { Scene } from 'aframe-react';
+
 import TopSecret from '../Containers/TopSecret';
 import * as THREE from 'three'
+import AR from '../Containers/Ar.js';
 
 class Random extends React.Component {
   constructor(props) {
     super(props)
-
+  this.state = {
+    showAr : false
+  }
     this.start = this.start.bind(this)
     this.stop = this.stop.bind(this)
     this.animate = this.animate.bind(this)
@@ -41,12 +44,16 @@ class Random extends React.Component {
 
     this.mount.appendChild(this.renderer.domElement)
     this.start()
+    this.click = this.click.bind(this)
   }
 
   componentWillUnmount() {
     this.stop()
+    if(this.state.showAr ===true) {
     this.mount.removeChild(this.renderer.domElement)
-  }
+
+    }
+    }
 
   start() {
     if (!this.frameId) {
@@ -69,8 +76,19 @@ class Random extends React.Component {
   renderScene() {
     this.renderer.render(this.scene, this.camera)
   }
+click() {
+  if(this.state.showAr ===true) {this.setState({showAr: false})}
+ else{this.setState({showAr:true})}
+
+}
 
   render() {
+    if(this.state.showAr === true) {
+      
+      return(  <div><button onClick={()=>this.click()}>Show cubeNana</button>
+       <AR/></div>)
+    }
+    else{
     return (
       <div style={{display: "flex"}}>
       <div
@@ -78,18 +96,12 @@ class Random extends React.Component {
         ref={(mount) => { this.mount = mount }}
       />
         <TopSecret style={{width: '400px', height: '400px'}}/>
-      {/* <div style = {{top: 1000}}>
-                <Scene  artoolkit={{sourceType: 'webcam', trackingMethod: 'best'}}>
-                    <a-anchor hit-testing-enabled="true">
-                        <a-entity minecraft minecraft-head-anim="yes" minecraft-body-anim="hiwave" material='opacity: 0.5' />
-                        <a-box position='0 0 0.5' material='opacity: 0.5;'></a-box>
-                    </a-anchor>
-                    <a-camera-static preset="hiro" />
-                </Scene>
-                </div> */}
-            </div>
+       
+       <button onClick={()=>this.click()}>Show Ar</button>       
+        </div>
     )
   }
+}
 }
 
 export default Random
