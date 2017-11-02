@@ -8,7 +8,8 @@ import $ from 'jquery';
 const Home = (props) => { 
   let Form =null
   let status = fire.auth().currentUser? fire.auth().currentUser.email.split('@')[0]:false;
-    if(status) {Form = <div className="">Hi {status}</div>}
+if(status) {var divstyle ={color: 'white'} 
+  Form = <div style= {divstyle}> Welcome {status}</div>}
     else{Form = <Signup/>}
     
   $(document).ready(function(){
