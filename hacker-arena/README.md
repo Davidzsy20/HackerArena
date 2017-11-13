@@ -1,2 +1,2 @@
 Hack-Arena;
-Table of Comtent
+Table of Comtents
