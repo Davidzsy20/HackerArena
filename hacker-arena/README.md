@@ -1,3 +1,4 @@
 Hack-Arena;
-Table of Comtents
+Table of Comtents:
+
 See demo at  https://hacker-arena.com/
